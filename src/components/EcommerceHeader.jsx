@@ -2,7 +2,7 @@ import Logo from '../assets/logo.svg'
 import CartIcon from '../assets/icon-cart.svg'
 import ProfileAvatar from '../assets/image-avatar.png'
 
-export default function EcommerceHeader(){
+export default function EcommerceHeader({toggleCart}){
     return (
         <header className="header-container">
             <div className="header-container-nav">
@@ -18,7 +18,7 @@ export default function EcommerceHeader(){
                 </nav>
             </div>
             <div className="header-container-profile">
-                <img className="header-cart" src={CartIcon} alt="Cart icon"/>
+                <img onClick={toggleCart} className="header-cart" src={CartIcon} alt="Cart icon"/>
                 <img className="header-avatar" src={ProfileAvatar} alt="Profile picture avatar"/>
             </div>
         </header>
