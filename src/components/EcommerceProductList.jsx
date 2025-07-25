@@ -2,7 +2,7 @@ import React from "react";
 import { products } from "./productData";
 import EcommerceListItem from "./EcommerceListItem";
 
-export default function EcommerceProductList({toggleId}) {
+export default function EcommerceProductList({toggleId, toggleProductView}) {
   return (
     <section className="ecommerce-product-list-container">
       {products.map((product) => {
@@ -17,6 +17,7 @@ export default function EcommerceProductList({toggleId}) {
             image={product.photo[0].image}
             discount={product.discount}
             toggleId={toggleId}
+            toggleProductView={toggleProductView}
           />
         );
       })}

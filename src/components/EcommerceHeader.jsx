@@ -2,7 +2,7 @@ import Logo from '../assets/logo.svg'
 import CartIcon from '../assets/icon-cart.svg'
 import ProfileAvatar from '../assets/image-avatar.png'
 
-export default function EcommerceHeader({toggleCart}){
+export default function EcommerceHeader({toggleCart, toggleProductView}){
     return (
         <header className="header-container">
             <div className="header-container-nav">
@@ -10,7 +10,7 @@ export default function EcommerceHeader({toggleCart}){
                 <nav>
                     <ul className="header-nav">
                         <li>Collection</li>
-                        <li>Men</li>
+                        <li onClick={toggleProductView}>Men</li>
                         <li>Women</li>
                         <li>About</li>
                         <li>Contact</li>

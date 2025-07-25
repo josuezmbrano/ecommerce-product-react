@@ -6,11 +6,12 @@ export default function EcommerceListItem({
   finalprice,
   image,
   discount,
-  toggleId
+  toggleId,
+  toggleProductView
 }) {
   
   return (
-    <div onClick={() => toggleId(id)} className="card-list-item-container">
+    <div onClick={() => {toggleId(id); toggleProductView() }} className="card-list-item-container">
       <div className="card-list-img-div">
         <img src={image} alt={`Image number: ${id}`} />
       </div>
