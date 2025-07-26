@@ -8,7 +8,8 @@ export default function EcommerceModalGallery({
   mainImages,
   mainImage,
   nextImage,
-  previousImage
+  previousImage,
+  isFading
 }) {
 
   return (
@@ -19,11 +20,13 @@ export default function EcommerceModalGallery({
             <img src={CloseIcon} />
           </button>
         </div>
-        <div className="main-image-container main-modal">
+        <div className="main-modal">
           <button onClick={previousImage} className="previous-arrow">
             <img src={PreviousArrow} alt="Previous Arrow" />
           </button>
-          <img src={mainImage.image} alt="Main product image" />
+          <div className="modal-main-image">
+          <img className={isFading ? "fade-animation" : ""} src={mainImage.image} alt="Main product image" />
+          </div>
           <button onClick={nextImage} className="next-arrow">
             <img src={NextArrow} alt="Next Arrow" />
           </button>

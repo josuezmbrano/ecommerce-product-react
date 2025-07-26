@@ -7,7 +7,7 @@ export default function EcommerceProductViewGallery({
   thumbnailImageArray,
 }) {
 
-  const [currentImageId, toggleImageId] = useToggleImageId();
+  const [currentImageId, toggleImageId, isFading] = useToggleImageId();
 
   // Encontramos la imagen principal segun la coincidencia del currentImageId con el id de cada imagen
   const mainImage = mainImageArray.find((image) => currentImageId === image.id);
@@ -34,10 +34,11 @@ export default function EcommerceProductViewGallery({
     setShowModal((prevModal) => !prevModal);
   }
 
+
   return (
     <section className="section-gallery-container">
       <div onClick={toggleModal} className="main-image-container">
-        <img
+        <img className={isFading ? "fade-animation" : ""}
           src={mainImage.image}
           alt={`Main product image: ${mainImage.id}`}
         />
@@ -62,6 +63,7 @@ export default function EcommerceProductViewGallery({
           mainImages={mainImageArray}
           nextImage={nextImage}
           previousImage={previousImage}
+          isFading={isFading}
         />
       )}
     </section>

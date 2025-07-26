@@ -1,5 +1,8 @@
 import CartItemPreview from "./CartItemPreview";
 export default function EcommerceCartPreview({ cartItems, removeCartItem }) {
+
+  const totalSum = cartItems.reduce((sum, item ) => sum + item.total, 0)
+
   return (
     <section className="cart-preview-section">
       <div className="cart-title-div">
@@ -20,9 +23,14 @@ export default function EcommerceCartPreview({ cartItems, removeCartItem }) {
         );
       })}
       {cartItems.length > 0 ? (
-        <button className="checkout-button-preview">Checkout</button>
+        <>
+          <p className="total-order-preview">Order total: ${totalSum.toFixed(2)}</p>
+          <button className="checkout-button-preview">Checkout</button>
+        </>
       ) : (
-        <div className="cart-message-div"><p>No hay productos en el carrito.</p></div>
+        <div className="cart-message-div">
+          <p>No hay productos en el carrito.</p>
+        </div>
       )}
     </section>
   );

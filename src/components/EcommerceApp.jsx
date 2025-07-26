@@ -15,7 +15,7 @@ export default function EcommerceApp() {
   //Custom hook para las funciones del carrito
   const [cartItems, toggleCartAdd, removeCartItem] = useAddToCart();
 
-  console.log(cartItems)
+  const itemsCount = cartItems.length
 
   //Find the product that equals the currentProductId
   const productSelected = products.find(
@@ -47,14 +47,14 @@ export default function EcommerceApp() {
 
   return (
     <main className="ecommerce-app">
-      <EcommerceHeader toggleCart={toggleCart} toggleProductView={toggleProductView}/>
+      <EcommerceHeader toggleCart={toggleCart} toggleProductView={toggleProductView} itemsCount={itemsCount}/>
       {showCart && (
         <EcommerceCartPreview
           cartItems={cartItems}
           removeCartItem={removeCartItem}
         />
       )}
-      <div className="sections-container">
+      <div className="sections-container glass-effect-panel">
         {isProductView && productSelected ? (
           <EcommerceProductView>
             <EcommerceProductViewGallery
